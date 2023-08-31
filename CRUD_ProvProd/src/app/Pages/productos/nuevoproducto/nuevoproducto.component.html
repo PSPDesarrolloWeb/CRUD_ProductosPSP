@@ -1,0 +1,67 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">Nuevo Producto</h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div class="col-md-4 px-1">
+                <div class="form-group">
+                  <label>Proveedor</label>
+                  <select class="form-control" [(ngModel)]="idProveedor" (change)="onProveedorChange($event)">
+                    <option value="">Seleccione una opción</option>
+                    <option *ngFor="let datos of proveedores" [value]="datos.id">{{ datos.nombre }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-8 px-1">
+                <div class="form-group">
+                  <label>Nombre</label>
+                  <input type="text" class="form-control" placeholder="Ingrese un nombre" id="nombre" name="nombre"
+                    [(ngModel)]="nombre">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 px-1">
+                <div class="form-group">
+                  <label>Precio</label>
+                  <input type="text" class="form-control" placeholder="0.00" id="precio" name="precio"
+                    [(ngModel)]="precio">
+                </div>
+              </div>
+              <div class="col-md-4 pl-1">
+                <div class="form-group">
+                  <label>Fecha de fabricación</label>
+                  <input type="date" class="form-control" placeholder="2023-01-01" id="fechafab" name="fechafab"
+                    [(ngModel)]="fechafab">
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label>Cantidad</label>
+                  <input type="text" class="form-control" placeholder="0" id="cantidad"
+                    name="cantidad" [(ngModel)]="cantidad">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <button class="btn btn-danger full-width-btn" (click)="addProducto()"
+                  [disabled]="!camposLlenos()">Añadir Producto</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

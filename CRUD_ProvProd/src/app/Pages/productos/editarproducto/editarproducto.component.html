@@ -1,0 +1,65 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">Actualizar datos del Producto</h5>
+        </div>
+        <div class="card-body" *ngFor="let datos of datosProducto">
+          <form>
+            <div class="row">
+              <div class="col-md-4 px-1">
+                <div class="form-group">
+                  <label>Proveedor</label>
+                  <select class="form-control" (change)="onProveedorChange($event.target.value)">
+                    <option *ngFor="let proveedor of proveedores" [value]="proveedor.id" [selected]="proveedor.id === datos.proveedor">{{ proveedor.nombre }}</option>
+                  </select>                  
+                </div>
+              </div>
+              <div class="col-md-8 px-1">
+                <div class="form-group">
+                  <label>Nombre</label>
+                  <input type="text" class="form-control" placeholder="Ingrese un nombre" id="nombre" name="nombre"
+                    [(ngModel)]="datos.nombre">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 px-1">
+                <div class="form-group">
+                  <label>Precio</label>
+                  <input type="text" class="form-control" placeholder="0.00" id="precio" name="precio"
+                    [(ngModel)]="datos.precio">
+                </div>
+              </div>
+              <div class="col-md-4 pl-1">
+                <div class="form-group">
+                  <label>Fecha de fabricación</label>
+                  <input type="date" class="form-control" placeholder="2023-01-01" id="fechafab" name="fechafab"
+                    [(ngModel)]="datos.fechafab">
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label>Cantidad</label>
+                  <input type="text" class="form-control" placeholder="0" id="cantidad"
+                    name="cantidad" [(ngModel)]="datos.cantidad">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <button class="btn btn-danger full-width-btn" (click)="updateProducto(datos)">Actualizar datos</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+</div>

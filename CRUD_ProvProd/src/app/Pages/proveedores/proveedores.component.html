@@ -1,0 +1,43 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Lista de Proveedores</h4>
+          <button type="button" class="btn btn-danger" [routerLink]="'/nuevoproveedor'">Nuevo Proveedor</button>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Fecha de fabricación</th>
+                <th>Cantidad</th>
+                <th>Proveedor</th>
+                <th>Opciones</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let datos of proveedores; let i = index">
+                  <td>{{i + 1 }}</td>
+                  <td>{{ datos.nombre }}</td>  
+                  <td>{{ datos.direccion}}</td>
+                  <td style="text-align: center;">{{ datos.telefono}}</td>
+                  <td>{{ datos.email }}</td>
+                  <td>{{ datos.pais}}</td>
+                  <td>
+                    <button type="button" class="btn btn-success" [routerLink]="'/editarproveedor/' + datos.id">Editar</button>
+                    <button type="button" class="btn btn-default"(click)="deleteProveedor(datos.id)">Eliminar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

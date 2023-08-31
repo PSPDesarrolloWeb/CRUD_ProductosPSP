@@ -1,0 +1,43 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Lista de Productos</h4>
+          <button type="button" class="btn btn-danger" [routerLink]="'/nuevoproducto'">Nuevo Producto</button>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Fecha de fabricación</th>
+                <th>Cantidad</th>
+                <th>Proveedor</th>
+                <th>Opciones</th>
+              </thead>
+              <tbody>
+                <tr *ngFor="let datos of productos; let i = index">
+                  <td>{{i + 1 }}</td>
+                  <td>{{ datos.nombre }}</td>  
+                  <td>{{ datos.precio}}</td>
+                  <td style="text-align: center;">{{ datos.fechafab}}</td>
+                  <td>{{ datos.cantidad }}</td>
+                  <td>{{ datos.proveedor}}</td>
+                  <td>
+                    <button type="button" class="btn btn-success" [routerLink]="'/editarproducto/' + datos.id">Editar</button>
+                    <button type="button" class="btn btn-default"(click)="deleteProducto(datos.id)">Eliminar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
